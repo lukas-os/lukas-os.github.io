@@ -1,0 +1,217 @@
+::selection {
+  background: #82f167;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+body {
+  font-size: 13pt;
+  color: white;
+  background-color: grey;
+}
+#container {
+  padding: .1em 1.5em 1em 1em;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 135px;
+}
+#cmdline {
+  outline: none;
+  background-color: transparent;
+  margin: 0;
+  width: 100%;
+  font: inherit;
+  border: none;
+  color: inherit;
+}
+#output {
+  clear: both;
+  width: 100%;
+}
+#prompt {
+  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-orient: vertical;
+  display: -moz-box;
+  -moz-box-pack: center;
+  -moz-box-orient: vertical;
+  display: box;
+  box-pack: center;
+  box-orient: vertical;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.prompt-color {
+  color: #82f167;
+}
+.input-line {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  clear: both;
+}
+.input-line > div:nth-child(2) {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+}
+#githubImg img {
+  position: fixed;
+  bottom: 0; right: 0;
+  border: 0;
+}
+
+/* SIDE NAV */
+
+#sidenavBtn {
+  position: absolute !important;
+  padding: 2px !important;
+  top: 0 !important;
+  right: 7px !important;
+  font-size: 35px !important;
+}
+
+#sidenav {
+  height: 100%;
+  width: 0px;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  /* green */
+  background-color: #82f167;
+  opacity: 0.8;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+#sidenav img {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 100px;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+#sidenav img:focus {
+  outline: none;
+}
+
+#sidenav button {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 15pt;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  background:none !important;
+  border:none;
+}
+#sidenav button:hover {
+  color: #442e00;
+}
+
+#myterminaldiv {
+  position: absolute;
+  z-index: 9;
+  background-color: #0c172f;
+  border-top: 2px solid white; 
+  border-bottom: 2px solid black;
+  border-left: 2px solid white;
+  border-right: 2px solid black;
+  display: none;
+}
+
+#mydivheader {
+  cursor: move;
+  z-index: 10;
+  color: #fff;
+  position: fixed;
+  width: inherit;
+}
+
+#gallerydivheader {
+  cursor: move;
+  z-index: 10;
+  color: #fff;
+  position: fixed;
+  width: inherit;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 0px 0px;
+  text-decoration: none;
+}
+
+.hidepopup {
+  background-color: #d3d3d3;
+  color: black;
+  float: left
+}
+.hidepopup:hover:not(.active) {
+  background-color: red;
+}
+.popuptitle {
+  background-color: #d3d3d3;
+  color: black;
+  text-align: center;
+}
+
+.resizable {
+  overflow: scroll;
+  resize: both;
+  border: 1px solid black;
+  width: 700px;
+  height: 400px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  }
+
+@media screen and (max-height: 450px) {
+  body {
+      font-size: 11pt;
+  }
+  #sidenav {
+     padding-top: 15px;
+ }
+  #sidenav a {
+     font-size: 13px;
+ }
+}
+
+@media screen and (max-width: 900px) {
+  #githubImg img {
+      transform: translateX(900px);
+  }
+
+  #container {
+      margin-right: 0;
+  }
+}

@@ -1,0 +1,85 @@
+#myaboutdiv {
+  position: absolute;
+  z-index: 9;
+  background-color: white;
+  border-top: 2px solid white; 
+  border-bottom: 2px solid black;
+  border-left: 2px solid white;
+  border-right: 2px solid black;
+  display: none;
+}
+
+#mygallerydiv {
+  position: absolute;
+  z-index: 9;
+  background-color: white;
+  border-top: 2px solid white; 
+  border-bottom: 2px solid black;
+  border-left: 2px solid white;
+  border-right: 2px solid black;
+  display: none;
+}
+
+#mythoughtsdiv {
+  position: absolute;
+  z-index: 9;
+  background-color: white;
+  border-top: 2px solid white; 
+  border-bottom: 2px solid black;
+  border-left: 2px solid white;
+  border-right: 2px solid black;
+  display: none;
+}
+
+#mydirectorydiv {
+  position: absolute;
+  z-index: 9;
+  background-color: white;
+  border-top: 2px solid white; 
+  border-bottom: 2px solid black;
+  border-left: 2px solid white;
+  border-right: 2px solid black;
+  display: none;
+}
+
+#normallink {
+  display: inline;
+  text-align: left;
+  color: blue;
+  font-weight: bold;
+}
+
+#crossedlink {
+  display: inline;
+  text-align: left;
+  color: blue;
+  font-weight: bold;
+  text-decoration: line-through;
+}
+
+#aboutBody {
+  color: black;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
+#galleryBody {
+  color: black;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 30px;
+}
+
+#thoughtsBody {
+  color: black;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
+ul.squareList {
+  list-style-type: square;
+  background-color: white;
+  padding-left:2em;
+}

@@ -1,0 +1,198 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LukasOS - Desktop</title>
+    <meta charset="UTF-8">
+
+    <link type="text/css" rel="stylesheet" href="index.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon"/>
+
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script src="./js/polyfills.js"></script>
+    <script src="./js/terminal.js"></script> </head>
+
+</head>
+    <body onload="randombg()">
+      <div id="random" ></div> 
+      <button onclick="randombg()">reload simulation</button> 
+      <div class="parent-vertical-one">
+        <a href="#" class="button">
+          <figure><img id="highlightable" src="windows-95-icons/artage-io-48177_1611194982.png"></figure>
+          <div id="highlightable" class="text">
+            Desktop
+          </div>
+        </a>
+        <a href="#" class="button">
+          <figure><img id="highlightable" src="windows-95-icons/artage-io-48180_1611194974.png"></figure>
+          <div id="highlightable" class="text">
+            About
+          </div>
+        </a>
+        <a href="#" class="button">
+          <figure><img id="highlightable" src="windows-95-icons/artage-io-48123_1611195044.png"></figure>
+          <div id="highlightable" class="text">
+          Gallery
+          </div>
+        </a>
+        <a href="#" class="button">
+          <figure><img id="highlightable" src="windows-95-icons/artage-io-48126_1611195040.png"></figure>
+          <div id="highlightable" class="text">
+            Resume.pdf
+          </div>
+        </a>
+        <a href="#" class="button">
+          <figure><img id="highlightable" src="windows-95-icons/artage-io-48185_1611194963.png"></figure>
+          <div id="highlightable" class="text">
+            Projects
+          </div>
+        </a>
+        <a href="#" class="button">
+          <figure><img id="highlightable" src="windows-95-icons/artage-io-48168_1611194999.png"></figure>
+          <div id="highlightable" class="text">
+            Thoughts
+          </div>
+        </a>
+      </div>
+      <div class="parent-vertical-two">
+        <a href="#" class="button" onclick="randombg()">
+          <figure><img id="highlightable" src="windows-95-icons/artage-io-48161_1611195011.png"></figure>
+          <div id="highlightable" class="text">
+            [Undefined]
+          </div>
+        </a>
+        <a href="#" class="button" onclick="showTerminal()">
+          <figure><img id="highlightable" src="windows-95-icons/artage-io-48178_1611195150.png"></figure>
+          <div id="highlightable" class="text">
+            Terminal
+          </div>
+        </a>
+        <a href="#" class="button">
+          <figure><img id="highlightable" src="windows-95-icons/artage-io-48179_1611194977.png"></figure>
+          <div id="highlightable" class="text">
+            Directory
+          </div>
+        </a>
+      </div>
+      <button onclick="randombg()">text</button>
+      <div class="navbar">
+        <a href="#home" class="active">LukasOS</a>
+        <a href="#news" class="time">
+          <div class="text" id="timeDiv">
+            <input type="text" id="currentTime">
+            <!--comes from the script below-->
+          </div>
+        </a>
+      </div>
+      <!--this is the terminal code-->
+      <div id="myterminaldiv" class="resizable">
+        <div id="mydivheader">
+          <ul>
+            <li><a class="hidepopup" href="#home" onclick="hideTerminal()">x</a></li>
+            <li><a class="popuptitle" href="#home">Terminal</a></li>
+          </ul>
+      </div>
+        <div id="sidenav">
+          <button id="sidenavBtn">blah</button>
+          <img id="profilePic" alt="" src="./img/avatar.png">
+        </div>
+        <div id="container">
+          <div id="output"></div>
+          <div id="input-line" class="input-line">
+            <div id="prompt" class="prompt-color"></div>&nbsp;
+            <div>
+              <input type="text" id="cmdline" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                    autofocus/>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <script>
+      //Make the DIV element draggagle:
+      dragElement(document.getElementById("myterminaldiv"));
+      function dragElement(elmnt) {
+        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        if (document.getElementById(elmnt.id + "header")) {
+          /* if present, the header is where you move the DIV from:*/
+          document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+        } else {
+          /* otherwise, move the DIV from anywhere inside the DIV:*/
+          elmnt.onmousedown = dragMouseDown;
+        }
+  
+        function dragMouseDown(e) {
+          e = e || window.event;
+          e.preventDefault();
+          // get the mouse cursor position at startup:
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+          document.onmouseup = closeDragElement;
+          // call a function whenever the cursor moves:
+          document.onmousemove = elementDrag;
+        }
+  
+        function elementDrag(e) {
+          e = e || window.event;
+          e.preventDefault();
+          // calculate the new cursor position:
+          pos1 = pos3 - e.clientX;
+          pos2 = pos4 - e.clientY;
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+          // set the element's new position:
+          elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+          elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+        }
+  
+        function closeDragElement() {
+          /* stop moving when mouse button is released:*/
+          document.onmouseup = null;
+          document.onmousemove = null;
+        }
+      }
+      </script>
+  
+      <script>
+        var date_format = '12'; /* FORMAT CAN BE 12 hour (12) OR 24 hour (24)*/
+        var d = new Date();
+        var hour = d.getHours();  /* Returns the hour (from 0-23) */
+        var minutes = d.getMinutes();  /* Returns the minutes (from 0-59) */
+        var result = hour;
+        var ext = '';
+        
+        if (date_format == '12') {
+          if (hour > 12) {
+            ext = 'PM';
+            hour = (hour - 12);
+            result = hour;
+            if (hour < 10) {
+              result = "0" + hour;
+            }
+            else if (hour == 12) {
+              hour = "00";
+              ext = 'AM';
+            }
+          }
+          else if (hour < 12) {
+            result = ((hour < 10) ? "0" + hour : hour);
+            ext = 'AM';
+          }
+          else if (hour == 12) {
+            ext = 'PM';
+          }
+        }
+        var today = new Date();
+        var time = hour + ":" + minutes + " " + ext;
+        document.getElementById("currentTime").value = time;
+        document.getElementById("timeDiv").innerHTML = time;
+      </script>
+  
+      <div class="scan-lines"></div>
+    </body>
+</html>

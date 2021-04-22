@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script src="./js/polyfills.js"></script>
+    <script src="./js/terminal.js"></script> </head>
+
+    <title>LukasOS - Desktop</title>
+    <meta charset="UTF-8">
+
+    <link type="text/css" rel="stylesheet" href="./css/terminal.css">
+    <link type="text/css" rel="stylesheet" href="about.css">
+    <link type="text/css" rel="stylesheet" href="gallery.css">
+    <link type="text/css" rel="stylesheet" href="index.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+  </head>
+  <!--onload="randombg()"-->
+  <body>
+    <div id="random" ></div> 
+    <div class="parent-vertical-one">
+      <a href="#" class="button" onclick="showDesktop()">
+        <figure><img id="highlightable" src="windows-95-icons/artage-io-48177_1611194982.png"></figure>
+        <div id="highlightable" class="text">
+          Desktop
+        </div>
+      </a>
+      <a href="#" class="button" onclick="showAbout()">
+        <figure><img id="highlightable" src="windows-95-icons/artage-io-48180_1611194974.png"></figure>
+        <div id="highlightable" class="text">
+          About
+        </div>
+      </a>
+      <a href="#" class="button" onclick="showGallery()">
+        <figure><img id="highlightable" src="windows-95-icons/artage-io-48123_1611195044.png"></figure>
+        <div id="highlightable" class="text">
+          Gallery
+        </div>
+      </a>
+      <a href="#" class="button">
+        <figure><img id="highlightable" src="windows-95-icons/artage-io-48126_1611195040.png"></figure>
+        <div id="highlightable" class="text">
+          Resume.pdf
+        </div>
+      </a>
+      <a href="#" class="button">
+        <figure><img id="highlightable" src="windows-95-icons/artage-io-48185_1611194963.png"></figure>
+        <div id="highlightable" class="text">
+          Projects
+        </div>
+      </a>
+      <a href="#" class="button" onclick="showThoughts()">
+        <figure><img id="highlightable" src="windows-95-icons/artage-io-48168_1611194999.png"></figure>
+        <div id="highlightable" class="text">
+          Thoughts
+        </div>
+      </a>
+    </div>
+    <div class="parent-vertical-two">
+      <a href="#" class="button" onclick="randombg()">
+        <figure><img id="highlightable" src="windows-95-icons/artage-io-48161_1611195011.png"></figure>
+        <div id="highlightable" class="text">
+          [Undefined]
+        </div>
+      </a>
+      <a href="#" class="button" onclick="showTerminal()">
+        <figure><img id="highlightable" src="windows-95-icons/artage-io-48178_1611195150.png"></figure>
+        <div id="highlightable" class="text">
+          Terminal
+        </div>
+      </a>
+      <a href="#" class="button" onclick="showDirectory()">
+        <figure><img id="highlightable" src="windows-95-icons/artage-io-48179_1611194977.png"></figure>
+        <div id="highlightable" class="text">
+          Directory
+        </div>
+      </a>
+    </div>
+
+    <div class="navbar">
+      <a href="#home" class="active">LukasOS</a>
+      <a href="#news" class="time">
+        <div class="text" id="timeDiv">
+          <input type="text" id="currentTime">
+          <!--comes from the script below-->
+        </div>
+      </a>
+    </div>
+
+    <!--this is the terminal code-->
+    <div id="myterminaldiv" class="resizable">
+      <div id="mydivheader">
+        <ul>
+          <li><a class="hidepopup" href="#home" onclick="hideTerminal()">x</a></li>
+          <li><a class="popuptitle" href="#home">Terminal</a></li>
+        </ul>
+    </div>
+      <div id="sidenav">
+        <button id="sidenavBtn">blah</button>
+        <img id="profilePic" alt="" src="./img/avatar.png">
+      </div>
+      <div id="container">
+        <div id="output"></div>
+        <div id="input-line" class="input-line">
+          <div id="prompt" class="prompt-color"></div>&nbsp;
+          <div>
+            <input type="text" id="cmdline" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                  autofocus/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--this is the about code-->
+    <div id="myaboutdiv" class="resizable">
+      <div id="mydivheader">
+        <ul>
+          <li><a class="hidepopup" href="#home" onclick="hideAbout()">x</a></li>
+          <li><a class="popuptitle" href="#home">About Me</a></li>
+        </ul>
+      </div>
+      <!--everything inside of the container-->
+      <div id="aboutBody"><br><br><br>
+          <img src="LukasFace.png" alt="Trulli" width="125" height="125">
+          <p>Hey, I'm Lukas Seklir! I do a lot of stuff in my free time; cheifly among them is programming. I do a lot of programming. Keep on reading this page to learn a bit more about me. Oh, and here's a <a id="normallink" href="url">game</a> I made in 48 hours.</p>
+          <p>I reside in Los Angeles, CA and am currently a senior at Harvard-Westlake in Studio City.</p>
+          <p>My Favorites:</p>
+          <ul class="squareList">
+              <li>Favorite Movie(s): <a id="normallink" href="https://medium.com/bulletstory/10-reasons-why-lord-of-the-rings-is-the-best-trilogy-ever-81aff5194e5f">The LoTR Trilogy</a> - <a id="normallink" onclick="showMovies()">here</a> are some more</a></li>
+              <li>Favorite TV Show: <a id="normallink" href="https://www.youtube.com/watch?v=O0804OxD5Ao&ab_channel=francescobrucoli">Breaking Bad</a> & <a id="normallink" href="url">Mad Men</a></li>
+              <li>Favorite Book: <a id="normallink" href="https://www.amazon.com/2001-Space-Odyssey/dp/0451457994">2001: A Space Odyssey</a></li>
+              <li>Favorite Video Game: <a id="normallink" href="https://jstris.jezevec10.com/?play=5">Tetris</a></li>
+              <li>Favorite Color: <a id="normallink" href="https://www.colorbook.io/imagecreator.php?hex=3c327b&width=1920&height=1080&text=%201920x1080">#3C327B</a></li>
+              <li>Favorite Band: <a id="normallink" href="https://open.spotify.com/artist/0k17h0D3J5VfsdmQ1iZtE9?si=KpH2KhFhTBuItI8ho17HDA">Pink Floyd</a></li>
+              <li>Favorite Song: <a id="normallink" href="https://open.spotify.com/track/1vXuYPpkLjn1v06E2EsWQY?si=kYK3hbm4Qyq52OZtMTpB_Q">Crimson & Clover</a> - <a id="normallink" href="accountmarketwatch.com/story/bill-ackmans-single-best-trade-of-all-time-turned-27-million-into-2-6-billion-now-hes-trying-it-again-11605106606">my</a> spotify</li>
+              <li>Favorite Instrument: <a id="normallink" href="https://www.youtube.com/user/MountainDoooYT">Acoustic Guitar</a></li>
+              <li>Favorite Cuisine: <a id="normallink" href="https://cafesantorini.com/">Greek</a></li>
+              <li>Favorite Food: <a id="normallink" href="https://www.helvetickitchen.com/recipes/nussgipfel">Nussgipfel</a> & <a id="normallink" href="https://www.poquitomas.com/location/studio-city-the-original/">Burritos</a> - <a id="normallink" href="url">buy</a> me a burrito!</li>
+              <li>Favorite Place: <a id="normallink" href="https://www.basel.com/en/rhine-swimming">Basel, Switzerland</a></li>
+              <li>Favorite Programming Language: <a id="normallink" href="https://codewithrockstar.com/">ROCKSTAR</a> ;)</li>
+              <li>Favorite Text-Editor: <a id="crossedlink" href="https://worsethanvscode.com">Atom</a> <a id="normallink" href="https://code.visualstudio.com/">VSCode</a></li>
+            </ul>
+          <p>My Hobbies:</p>
+          <ul class="squareList">
+              <li>Tennis</li>
+              <li>Programming - <a id="normallink" href="url">Controlled Chaos LLC</a></li>
+              <li>Drawing & Painting</li>
+              <li>Playing Guitar</li>
+              <li>Astronomy - <a id="normallink" href="https://www.telescope.com/Orion-SkyQuest-XT10-Classic-Dobsonian-Telescope/p/102006.uts">good telescope</a></li>
+              <li>Hobby Electronics</li>
+          </ul>
+          <p>-----------------------------------------</p>
+          <p>Contacts:</p>
+          <ul class="squareList">
+              <li><a id="normallink" href="url">Github</a></li>
+              <li><a id="normallink" href="https://www.instagram.com/lukas.seklir/">Instagram</a></li>
+              <li><a id="normallink" href="https://www.linkedin.com/in/lukas-seklir-69444a17b/">LinkedIn</a></li>
+              <li><a id="normallink" href="mailto:seklirlukas@gmail.com">Email</a></li>
+            </ul>
+      </div>
+    </div>
+
+    <!--desktop div-->
+    <div id="mydesktopdiv" class="small-resizable">
+      <div id="desktopdivheader">
+        <ul>
+          <li><a class="hidepopup" href="#home" onclick="hideDesktop()">x</a></li>
+          <li><a class="popuptitle" href="#home">Desktop</a></li>
+        </ul>
+      </div>
+      <!--everything inside of the container-->
+      <div id="aboutBody"><br>
+        <center>
+            <p id="white-text">Welcome to</p>
+            <img src="lukasos-logo.png" alt="Trulli" width="187" height="57">
+        </center>
+      </div>
+    </div>
+
+    <!--movies-->
+    <div id="moviesdiv" class="resizable">
+      <div id="mydivheader">
+        <ul>
+          <li><a class="hidepopup" href="#home" onclick="hideMovies()">x</a></li>
+          <li><a class="popuptitle" href="#home">Cool Movies</a></li>
+        </ul>
+      </div>
+      <!--everything inside of the container-->
+      <div id="aboutBody"><br><br><br>
+        <p>Must-Watch Movies (ranked):</p>
+        <ul class="squareList">
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0167260/">The Lord of the Rings: The Return of the King</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0167261/">The Lord of the Rings: The Two Towers</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0120737/">The Lord of the Rings: The Fellowship of the Ring</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0088846/">Brazil</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt1285016/">The Social Network</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0062622/">2001: A Space Odyssey</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt2872718/">Nightcrawler</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0425112/">Hot Fuzz</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0084787/">The Thing</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0103064/">Terminator 2: Judgment Day</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0477348/">No Country for Old Men</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt2278388/">The Grand Budapest Hotel</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0209144/">Memento</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0079470/">Monty Python's Life of Brian</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0266697/">Kill Bill: Vol. 1</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0092067/">Castle in the Sky</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0115734/">Bottle Rocket</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0083658/">Blade Runner</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0053125/">North by Northwest</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0361748/">Inglorious Basterds</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0060196/">The Good, the Bad and the Ugly</a></li>
+          <li><a id="normallink" href="https://www.imdb.com/title/tt0118715/">The Big Lebowski</a></li>
+        </ul>
+        <p>Movies I Want to Watch:</p>
+        <ul class="squareList">
+            <li>Goodfellas</li>
+            <li>Reservoir Dogs</li>
+            <li>Dr. Strangelove</li>
+            <li>Eternal Sunshine of the Spotless Mind</li>
+            <li>The Presitge</li>
+            <li>Casino</li>
+            <li>Apocalypse Now</li>
+          </ul>
+      </div>
+    </div>
+
+    <!--DIRECTORY DIV-->
+    <div id="mydirectorydiv" class="resizable">
+      <div id="mydivheader">
+        <ul>
+          <li><a class="hidepopup" href="#home" onclick="hideDirectory()">x</a></li>
+          <li><a class="popuptitle" href="#home">Directory</a></li>
+        </ul>
+      </div>
+      <!--everything inside of the container-->
+      <div id="aboutBody"><br><br>
+        <h2>LukasOS Directory Tree</h2>
+          <p>Here's the <a href=".">ChangeLog</a></p>
+          ├── <a href="./LukasFace.png">LukasFace.png</a><br>
+          ├── <a href="./about.css">about.css</a><br>
+          ├── <a href="./about.html">about.html</a><br>
+          ├── <a href="./background-images/">background-images</a><br>
+          │   ├── <a href="./background-images/image10.png">image10.png</a><br>
+          │   ├── <a href="./background-images/image11.png">image11.png</a><br>
+          │   ├── <a href="./background-images/image12.png">image12.png</a><br>
+          │   ├── <a href="./background-images/image13.png">image13.png</a><br>
+          │   ├── <a href="./background-images/image14.png">image14.png</a><br>
+          │   ├── <a href="./background-images/image15.png">image15.png</a><br>
+          │   ├── <a href="./background-images/image16.png">image16.png</a><br>
+          │   ├── <a href="./background-images/image17.png">image17.png</a><br>
+          │   ├── <a href="./background-images/image18.png">image18.png</a><br>
+          │   ├── <a href="./background-images/image19.png">image19.png</a><br>
+          │   ├── <a href="./background-images/image20.png">image20.png</a><br>
+          │   ├── <a href="./background-images/image21.png">image21.png</a><br>
+          │   ├── <a href="./background-images/image22.png">image22.png</a><br>
+          │   ├── <a href="./background-images/image23.png">image23.png</a><br>
+          │   ├── <a href="./background-images/image24.png">image24.png</a><br>
+          │   ├── <a href="./background-images/image25.png">image25.png</a><br>
+          │   ├── <a href="./background-images/image26.png">image26.png</a><br>
+          │   ├── <a href="./background-images/image27.png">image27.png</a><br>
+          │   ├── <a href="./background-images/image28.png">image28.png</a><br>
+          │   ├── <a href="./background-images/image29.png">image29.png</a><br>
+          │   ├── <a href="./background-images/image30.png">image30.png</a><br>
+          │   ├── <a href="./background-images/image31.png">image31.png</a><br>
+          │   ├── <a href="./background-images/image32.png">image32.png</a><br>
+          │   ├── <a href="./background-images/image33.png">image33.png</a><br>
+          │   ├── <a href="./background-images/image34.png">image34.png</a><br>
+          │   ├── <a href="./background-images/image35.png">image35.png</a><br>
+          │   ├── <a href="./background-images/image36.png">image36.png</a><br>
+          │   ├── <a href="./background-images/image37.png">image37.png</a><br>
+          │   ├── <a href="./background-images/image38.png">image38.png</a><br>
+          │   ├── <a href="./background-images/image39.png">image39.png</a><br>
+          │   ├── <a href="./background-images/image40.png">image40.png</a><br>
+          │   ├── <a href="./background-images/image41.png">image41.png</a><br>
+          │   ├── <a href="./background-images/image42.png">image42.png</a><br>
+          │   ├── <a href="./background-images/image43.png">image43.png</a><br>
+          │   ├── <a href="./background-images/image44.png">image44.png</a><br>
+          │   ├── <a href="./background-images/image45.png">image45.png</a><br>
+          │   ├── <a href="./background-images/image46.png">image46.png</a><br>
+          │   ├── <a href="./background-images/image47.png">image47.png</a><br>
+          │   ├── <a href="./background-images/image48.png">image48.png</a><br>
+          │   ├── <a href="./background-images/image49.png">image49.png</a><br>
+          │   ├── <a href="./background-images/image50.png">image50.png</a><br>
+          │   ├── <a href="./background-images/image51.png">image51.png</a><br>
+          │   ├── <a href="./background-images/image52.png">image52.png</a><br>
+          │   ├── <a href="./background-images/image53.png">image53.png</a><br>
+          │   ├── <a href="./background-images/image54.png">image54.png</a><br>
+          │   ├── <a href="./background-images/image55.png">image55.png</a><br>
+          │   ├── <a href="./background-images/image56.png">image56.png</a><br>
+          │   ├── <a href="./background-images/image57.png">image57.png</a><br>
+          │   ├── <a href="./background-images/image58.png">image58.png</a><br>
+          │   ├── <a href="./background-images/image59.png">image59.png</a><br>
+          │   ├── <a href="./background-images/image60.png">image60.png</a><br>
+          │   ├── <a href="./background-images/image61.png">image61.png</a><br>
+          │   ├── <a href="./background-images/image62.png">image62.png</a><br>
+          │   ├── <a href="./background-images/image63.png">image63.png</a><br>
+          │   ├── <a href="./background-images/image64.png">image64.png</a><br>
+          │   ├── <a href="./background-images/image65.png">image65.png</a><br>
+          │   ├── <a href="./background-images/image66.png">image66.png</a><br>
+          │   ├── <a href="./background-images/image67.png">image67.png</a><br>
+          │   ├── <a href="./background-images/image68.png">image68.png</a><br>
+          │   ├── <a href="./background-images/image69.png">image69.png</a><br>
+          │   ├── <a href="./background-images/image7.png">image7.png</a><br>
+          │   ├── <a href="./background-images/image70.png">image70.png</a><br>
+          │   ├── <a href="./background-images/image71.png">image71.png</a><br>
+          │   ├── <a href="./background-images/image72.png">image72.png</a><br>
+          │   ├── <a href="./background-images/image73.png">image73.png</a><br>
+          │   ├── <a href="./background-images/image74.png">image74.png</a><br>
+          │   ├── <a href="./background-images/image75.png">image75.png</a><br>
+          │   ├── <a href="./background-images/image76.png">image76.png</a><br>
+          │   ├── <a href="./background-images/image77.png">image77.png</a><br>
+          │   ├── <a href="./background-images/image78.png">image78.png</a><br>
+          │   ├── <a href="./background-images/image79.png">image79.png</a><br>
+          │   ├── <a href="./background-images/image8.png">image8.png</a><br>
+          │   ├── <a href="./background-images/image80.png">image80.png</a><br>
+          │   ├── <a href="./background-images/image81.png">image81.png</a><br>
+          │   └── <a href="./background-images/image9.png">image9.png</a><br>
+          ├── <a href="./css/">css</a><br>
+          │   └── <a href="./css/terminal.css">terminal.css</a><br>
+          ├── <a href="./directorytree.html">directorytree.html</a><br>
+          ├── <a href="./favicon.png">favicon.png</a><br>
+          ├── <a href="./index.css">index.css</a><br>
+          ├── <a href="./index.html">index.html</a><br>
+          ├── <a href="./index.js">index.js</a><br>
+          ├── <a href="./js/">js</a><br>
+          │   ├── <a href="./js/polyfills.js">polyfills.js</a><br>
+          │   └── <a href="./js/terminal.js">terminal.js</a><br>
+          ├── <a href="./lukasos-logo.png">lukasos-logo.png</a><br>
+          ├── <a href="./terminal.html">terminal.html</a><br>
+          ├── <a href="./tester.css">tester.css</a><br>
+          ├── <a href="./tester.html">tester.html</a><br>
+          ├── <a href="./tester.js">tester.js</a><br>
+          ├── <a href="./tester.s">tester.s</a><br>
+          ├── <a href="./w95fa.woff">w95fa.woff</a><br>
+          └── <a href="./windows-95-icons/">windows-95-icons</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48123_1611195044.png">artage-io-48123_1611195044.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48126_1611195040.png">artage-io-48126_1611195040.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48128_1611195035.png">artage-io-48128_1611195035.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48130_1611195031.png">artage-io-48130_1611195031.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48153_1611195018.png">artage-io-48153_1611195018.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48161_1611195011.png">artage-io-48161_1611195011.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48162_1611195007.png">artage-io-48162_1611195007.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48167_1611195002.png">artage-io-48167_1611195002.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48168_1611194999.png">artage-io-48168_1611194999.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48169_1611195156.png">artage-io-48169_1611195156.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48173_1611194993.png">artage-io-48173_1611194993.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48174_1611194990.png">artage-io-48174_1611194990.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48175_1611194987.png">artage-io-48175_1611194987.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48177_1611194982.png">artage-io-48177_1611194982.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48178_1611195150.png">artage-io-48178_1611195150.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48179_1611194977.png">artage-io-48179_1611194977.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48180_1611194974.png">artage-io-48180_1611194974.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48181_1611194971.png">artage-io-48181_1611194971.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48182_1611194967.png">artage-io-48182_1611194967.png</a><br>
+          &nbsp;&nbsp;&nbsp; ├── <a href="./windows-95-icons/artage-io-48185_1611194963.png">artage-io-48185_1611194963.png</a><br>
+          &nbsp;&nbsp;&nbsp; └── <a href="./windows-95-icons/artage-io-48186_1611194958.png">artage-io-48186_1611194958.png</a><br>
+
+          <br><p>If you want a directory like this one, take a look at <a href="https://formulae.brew.sh/formula/tree">TREE</a></p>
+      </div>
+    </div>
+
+    <!--this is the thoughts code-->
+    <div id="mythoughtsdiv" class="resizable">
+      <div id="mydivheader">
+        <ul>
+          <li><a class="hidepopup" href="#home" onclick="hideThoughts()">x</a></li>
+          <li><a class="popuptitle" href="#home">Thoughts</a></li>
+        </ul>
+      </div>
+      <!--everything inside of the container-->
+      <div id="thoughtsBody"><br><br>
+        <div class="header">
+          <p>This page is intended for me to track progress, discuss interests, or whatever else I think would fit. Post are sorted from new to old.</p>
+          <p>=========================================</p>
+        </div>
+        <script src="random.js"></script>
+        </object>
+      </div>
+    </div>
+
+    <!--this is the gallery code-->
+    <div id="mygallerydiv" class="big-resizable">
+      <div id="gallerydivheader">
+        <ul>
+          <li><a class="hidepopup" href="#home" onclick="hideGallery()">x</a></li>
+          <li><a class="popuptitle" href="#home">Gallery</a></li>
+        </ul>
+      </div>
+      <!--everything inside of the container-->
+      <div id="galleryBody"><br><br>
+        <!-- Photo Grid -->
+        <div class="galleryrow"> 
+          <div class="gallerycolumn">
+            <img src="gallery1.png" style="width:100%">
+            <img id="bordered" src="gallery6.png" style="width:100%">
+            <img src="gallery5.png" style="width:100%">
+          </div>
+          <div class="gallerycolumn">
+            <img id="bordered" src="gallery2.png" style="width:100%">
+            <img id="bordered" src="gallery4.png" style="width:100%">
+            <img src="gallery3.png" style="width:100%">
+          </div>  
+        </div>
+        <div id="gallerylink">
+          <p>Prints can be found <a href="https://thisismylink.csdfsdf">here</a></p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <!--here is code for other pages that are not main desktop ones-->
+
+
+
+
+    
+    <script>
+    //Make the DIV element draggagle:
+    dragElement(document.getElementById("myterminaldiv"));
+    dragElement(document.getElementById("myaboutdiv"));
+    dragElement(document.getElementById("mydesktopdiv"));
+    dragElement(document.getElementById("mydirectorydiv"));
+    dragElement(document.getElementById("mythoughtsdiv"));
+    dragElement(document.getElementById("mygallerydiv"));
+    dragElement(document.getElementById("moviesdiv"));
+
+    function dragElement(elmnt) {
+      var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+      if (document.getElementById(elmnt.id + "header")) {
+        /* if present, the header is where you move the DIV from:*/
+        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+      } else {
+        /* otherwise, move the DIV from anywhere inside the DIV:*/
+        elmnt.onmousedown = dragMouseDown;
+      }
+
+      function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+      }
+
+      function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        // set the element's new position:
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+      }
+
+      function closeDragElement() {
+        /* stop moving when mouse button is released:*/
+        document.onmouseup = null;
+        document.onmousemove = null;
+      }
+    }
+    </script>
+
+    <script>
+      var date_format = '12'; /* FORMAT CAN BE 12 hour (12) OR 24 hour (24)*/
+      var d = new Date();
+      var hour = d.getHours();  /* Returns the hour (from 0-23) */
+      var minutes = d.getMinutes();  /* Returns the minutes (from 0-59) */
+      var result = hour;
+      var ext = '';
+      
+      if (date_format == '12') {
+        if (hour > 12) {
+          ext = 'PM';
+          hour = (hour - 12);
+          result = hour;
+          if (hour < 10) {
+            result = "0" + hour;
+          }
+          else if (hour == 12) {
+            hour = "00";
+            ext = 'AM';
+          }
+        }
+        else if (hour < 12) {
+          result = ((hour < 10) ? "0" + hour : hour);
+          ext = 'AM';
+        }
+        else if (hour == 12) {
+          ext = 'PM';
+        }
+        if (minutes < 10) {
+          minutes = "0" + minutes
+        }
+      }
+      var today = new Date();
+      var time = hour + ":" + minutes + " " + ext;
+      document.getElementById("currentTime").value = time;
+      document.getElementById("timeDiv").innerHTML = time;
+    </script>
+
+    <div class="scan-lines"></div>
+  </body>
+</html>
+

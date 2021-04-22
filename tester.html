@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LukasOS - Desktop</title>
+    <meta charset="UTF-8">
+
+    <link type="text/css" rel="stylesheet" href="tester.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script src="./js/polyfills.js"></script>
+    <script src="tester.js"></script> </head>
+
+</head>
+    <body>
+        <div id="sidenav">
+          <button id="sidenavBtn"></button>
+          <img id="profilePic" alt="" src="./img/avatar.png">
+        </div>
+        <div id="container">
+          <div id="output"></div>
+          <div id="input-line" class="input-line">
+            <div id="prompt" class="prompt-color"></div>&nbsp;
+            <div>
+              <input type="text" id="cmdline" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                    autofocus/>
+            </div>
+          </div>
+        </div>
+    </body>
+</html>
